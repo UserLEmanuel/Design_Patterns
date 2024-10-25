@@ -1,4 +1,4 @@
-package com.example.designpatterns;
+package models;
 
 public interface Element {
     void print();

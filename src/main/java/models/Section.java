@@ -1,9 +1,9 @@
-package com.example.designpatterns;
+package models;
 
 import java.util.ArrayList;
 import java.util.List;
 
-class Section implements Element {
+public class Section implements Element {
     private String title;
     private List<Element> elements = new ArrayList<>();
 

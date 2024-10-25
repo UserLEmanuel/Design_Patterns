@@ -1,4 +1,4 @@
-package com.example.designpatterns;
+package models;
 
 public class Author {
     private String name;

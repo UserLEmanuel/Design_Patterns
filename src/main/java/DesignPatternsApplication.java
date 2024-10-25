@@ -1,6 +1,9 @@
-package com.example.designpatterns;
-
-import org.springframework.boot.SpringApplication;
+import models.*;
+import services.AlignCenter;
+import services.AlignLeft;
+import services.AlignRight;
+import models.Author;
+import models.Book;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
@@ -28,8 +31,20 @@ public class DesignPatternsApplication {
         cap1111.add(new Image("Image subchapter 1.1.1.1"));
         noapteBuna.print();
 
+        Paragraph paragraph = new Paragraph("This is a sample paragraph used for testing text alignment strategies.");
 
+        // Set alignment to left and render
+        paragraph.setStrategy(new AlignLeft());
+        paragraph.render(20);
 
+        System.out.println();
+
+        // Set alignment to right and render
+        paragraph.setStrategy(new AlignRight());
+        paragraph.render(20);
+
+        paragraph.setStrategy(new AlignCenter());
+        paragraph.render(20);
     }
-
+    //ceva cu enum Alignment nu interface
 }

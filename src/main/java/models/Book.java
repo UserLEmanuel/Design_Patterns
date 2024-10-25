@@ -1,9 +1,9 @@
-package com.example.designpatterns;
+package models;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class Book implements Element{
+public class Book implements Element {
     private String title;
     private List<Author> authors = new ArrayList<>();
     private List<Element> content = new ArrayList<>();

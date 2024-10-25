@@ -1,6 +1,6 @@
-package com.example.designpatterns;
+package models;
 
-class Image implements Element {
+public class Image implements Element {
     private String url;
 
     public Image(String url) {
