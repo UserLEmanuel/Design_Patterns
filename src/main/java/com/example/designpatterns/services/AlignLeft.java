@@ -1,6 +1,6 @@
-package services;
+package com.example.designpatterns.services;
 
-import models.Paragraph;
+import com.example.designpatterns.models.Paragraph;
 
 public class AlignLeft implements Strategy {
     @Override

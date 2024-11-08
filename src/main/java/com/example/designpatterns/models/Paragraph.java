@@ -1,6 +1,6 @@
-package models;
+package com.example.designpatterns.models;
 
-import services.Strategy;
+import com.example.designpatterns.services.Strategy;
 
 public class Paragraph implements Element, Strategy {
     private String text;
