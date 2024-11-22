@@ -48,6 +48,7 @@ public class DesignPatternsApplication {
 //        c = (ClientComponent)context.getBean("clientComponent");
 //        c.operation();
         SpringApplication.run(DesignPatternsApplication.class, args);
+
    }
 
 }
