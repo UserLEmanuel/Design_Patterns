@@ -1,41 +1,36 @@
-package com.example.designpatterns.controllers;
+package com.example.designpatterns.services;
 
 import com.example.designpatterns.models.Book;
 import com.example.designpatterns.repositories.BooksRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
-@RestController
-@RequestMapping("/books")
-public class BooksController {
+@Service
+public class BookService {
 
     private final BooksRepository booksRepository;
 
     @Autowired
-    public BooksController(BooksRepository booksRepository) {
+    public BookService(BooksRepository booksRepository) {
         this.booksRepository = booksRepository;
     }
 
-    @GetMapping
     public List<Book> getAllBooks() {
         return booksRepository.findAll();
     }
 
-    @GetMapping("/{id}")
-    public Optional<Book> getBookById(@PathVariable Integer id) {
+    public Optional<Book> getBookById(Integer id) {
         return booksRepository.findById(id);
     }
 
-    @PostMapping
-    public Book createBook(@RequestBody Book book) {
+    public Book createBook(Book book) {
         return booksRepository.save(book);
     }
 
-    @PutMapping("/{id}")
-    public Book updateBook(@PathVariable Integer id, @RequestBody Book bookDetails) {
+    public Book updateBook(Integer id, Book bookDetails) {
         return booksRepository.findById(id).map(book -> {
             book.setTitle(bookDetails.getTitle());
             book.setAuthors(bookDetails.getAuthors());
@@ -43,9 +38,7 @@ public class BooksController {
         }).orElseThrow(() -> new RuntimeException("Book not found with id " + id));
     }
 
-    @DeleteMapping("/{id}")
-    public String deleteBook(@PathVariable Integer id) {
+    public void deleteBook(Integer id) {
         booksRepository.deleteById(id);
-        return "Book with ID " + id + " deleted";
     }
 }
